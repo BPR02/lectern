@@ -16,6 +16,7 @@ from typing import Any, Callable, Dict, List, Optional, Protocol, Type
 from zipfile import ZipFile
 
 from beet import Container, DataPack, NamespaceFile, ResourcePack
+from beet.contrib.worldgen import worldgen
 from beet.core.utils import snake_case
 
 from .fragment import Fragment
@@ -52,6 +53,8 @@ class DirectiveRegistry(Container[str, Directive]):
         @self.add_resolver
         def _(self: DirectiveRegistry):
             for pack in [self.assets, self.data]:
+                if isinstance(pack, DataPack):
+                    worldgen(pack)
                 for file_type in pack.resolve_scope_map().values():
                     name = snake_case(file_type.__name__)
                     self[name] = NamespacedResourceDirective(file_type)

@@ -1,0 +1,38 @@
+@data_pack pack.mcmeta
+{
+  "pack": {
+    "pack_format": 48,
+    "description": ""
+  },
+  "overlays": {
+    "entries": [
+      {
+        "formats": {
+          "min_inclusive": 48,
+          "max_inclusive": 48
+        },
+        "directory": "overlay_48"
+      }
+    ]
+  }
+}
+
+@dimension demo:demo
+{
+  "type": "demo:in-the-base-pack",
+  "generator": {
+    "type": "minecraft:debug"
+  }
+}
+
+@overlay overlay_48
+
+@dimension demo:demo
+{
+  "type": "demo:in-the-overlay-pack",
+  "generator": {
+    "type": "minecraft:debug"
+  }
+}
+
+@endoverlay

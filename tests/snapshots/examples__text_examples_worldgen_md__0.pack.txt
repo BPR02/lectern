@@ -1,0 +1,15 @@
+@data_pack pack.mcmeta
+{
+  "pack": {
+    "pack_format": 48,
+    "description": ""
+  }
+}
+
+@dimension demo:demo
+{
+  "type": "demo:in-the-base-pack",
+  "generator": {
+    "type": "minecraft:debug"
+  }
+}
